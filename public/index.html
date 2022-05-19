@@ -24,7 +24,7 @@
     <button class="navbutton--icon navbutton__item--3 
     login"
     >
-      <a href="#loginDiv">Logga in</a>
+      <a href="/#loginDiv">Logga in</a>
 
     </button>
   </li>
@@ -32,7 +32,7 @@
     <button 
     id="aboutUsButt"
     class="navbutton--icon navbutton__item--2">
-      <a href="#aboutUs">Om oss</a>
+      <a href="/#aboutUs">Om oss</a>
    
       
     </button>
@@ -150,42 +150,6 @@
     class="listAccounts om-oss__allusers--grid"></div>
   </section>
 
-<section id="accountInformation">
-  <div class="frame__cell">
-    <div class="frame__cell--item">
-      <div class="textmodule__b--content">
-        <h2>Kontoinformation:</h2>
-        
-  <div id="renderAccount">
-    <!---render here-->
-  </div>
-  <form action="" id="deleteAccount">
-    <button
-    class="btn--primary btn--default button__login">
-    Ta bort detta konto</button>
-  </form>
-      </div>
-    <div class="textmodule__b--infobox">
-      <form action="" id="addCash">
-        <label for="addAmount">Summa att sätta in</label>
-        <input type="number" step=".01" min="0" id="addAmount">
-        <button>Sätt in</button>
-      </form>
-      <form action="" id="withdrawCash">
-        <label for="withdrawAmount">Summa att ta ut</label>
-        <input type="number" step=".01" min="0" id="withdrawAmount">
-        <button>Ta ut pengar</button>
-      </form>
-   
-    </div>
-    </div>
-    </div>
-    <br><br>
-    <img src="https://www.ekobanken.se/-/media/ekobanken/genrebilder/braehus.jpg?rev=6d78c5db8f244bf585e41438df7bc90f&mv=1600&hash=2807B54022FAE6ABB8EBA2EDA27E4F8F"
-    alt="Braehus, foto Karin Runge"
-    class="img__hero">
-</section>
-
 
 <section id="aboutUs">
     
@@ -252,23 +216,27 @@
 
 <section id="loginDiv"
 class="user__login">
-<div>
+
+<div id="login">
   <h3>
     Logga in</h3>
 <form action="" 
 id="login">
   <label 
-  for="loginname">
+  for="username">
     Användarnamn</label>
   <input 
-  name="loginname"
-  type="text" id="loginname"><br>
+  name="username"
+  type="text" 
+  id="username">
+  <br>
   <label 
   for="loginpass">
     Lösenord</label>
   <input 
-  name="loginpass"
-  type="password" id="loginpass">
+  name="password"
+  type="password" 
+  id="password">
 
   <button 
   class="btn--default button__login">
@@ -283,22 +251,27 @@ class="btn--default button__login">
 </form>
 </div>
 <div>
+  <h3>Vill du ha möjlighet att ändra på ditt konto?</h3><h4>Då behöver du ha en admin-användare på vår hemsida!</h4>
+  </div>
+<div id="registerDiv">
   <h3>Registrera dig</h3>
-<form action="" id="register">
-  <label for="registerName">
-    Användarnamn</label>
-  <input 
-  type="text" id="registerName"><br>
-  <label 
-  for="registerPass">
-    Lösenord</label>
-  <input 
-  type="password" id="registerPass">
-  <button 
-  class="btn--default button__login">
-    Skapa</button>
-</form>
-<div id="messageDiv"></div>
+  <form action="" 
+  id="register">
+    <label for="userName">
+      Användarnamn:</label>
+    <input 
+    type="text" 
+    name="userName"
+    id="userName"
+    required><br>
+    <label for="userPassword">
+      Lösenord:
+    </label>
+    <input type="password" id="userPassword"
+    name="userPassword"
+    required>
+    <button class="btn--default button__login">Skapa ny</button>
+  </form>
 </div>
 </section>
 

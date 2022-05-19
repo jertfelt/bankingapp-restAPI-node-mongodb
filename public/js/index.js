@@ -5,12 +5,19 @@ const newName = document.getElementById('accountname');
 const newBalance = document.getElementById('balance');
 const newType = document.getElementById("type")
 
+//users
+const registerUser = document.getElementById('register');
+const newUsername = document.getElementById('userName');
+const newUserpassword = document.getElementById('userPassword');
 
 const loginForm = document.getElementById('login');
-const loginName = document.getElementById('loginname');
-const loginPass = document.getElementById('loginpass');
+const loginUsername = document.getElementById('username');
+const loginPassword = document.getElementById('password');
+const logout = document.getElementById('logout');
 
 
+
+//*--bankkonton:
 const getAllAccounts = async ()=> {
   const res = await fetch('/api/accounts');
   const data = await res.json();
@@ -27,7 +34,7 @@ const renderAccounts = (data) => {
   })  
 }
 
-
+//skapa användare
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -48,25 +55,26 @@ form.addEventListener('submit', async (e) => {
 });
 
 
-loginForm.addEventListener('submit', async (e) => {
+
+getAllAccounts();
+
+registerUser.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const response = await fetch('/api/login', {
+  const res = await fetch('/api/users', {
     method: 'POST', 
     headers: {
       'Content-type': 'application/json'
     },
     body: JSON.stringify({
-      loginName : loginName.value, 
-      loginPass : loginPass.value
-    }
-  )});
+      user : newUsername.value, 
+      pass : newUserpassword.value
+    })
+  });
 
   const data = await res.json(); 
-  console.log(data);
-  location.reload();
+
+  let msg = document.createElement('h3');
+  msg.innerHTML = `Välkommen till Ekobanken!`
+  registerUser.append(msg);
 });
-
-
-
-getAllAccounts();

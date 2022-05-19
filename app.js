@@ -26,6 +26,8 @@ app.use(session({
   }
 }));
 
+app.set("view engine", "ejs");
+
 app.get('/api/loggedin', (req, res) => {
   if(req.session.user){
     res.json({ user: req.session.user });
@@ -34,48 +36,43 @@ app.get('/api/loggedin', (req, res) => {
   } 
 });
 
-//KRYPTERING
 const saltRounds = 10;
 
+//*----------USER ROUTES
+app.post('/api/users', async (req, res) => {
+  const hash = await bcrypt.hash(req.body.pass, saltRounds);
 
-app.post('/api/login', async (req, res) => {
-  const user = await users.findOne( { user: req.body.name } );
-
-  const passMatches = await bcrypt.compare(req.body.password, user.pass);
-
-  if (user && passMatches) {
-    req.session.user = user;
-    
-    res.json({
-      user: user.user
-    });
-  } else { 
-    res.status(401).json({ error: 'Unauthorized' });
+  const user = {
+    user: req.body.user,
+    pass: hash
   }
-});
 
+  await users.insertOne(user);
+  res.json({
+    success:true
+  })})
 
-app.post('/api/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.json({
-      loggedin: false
-    });
-  });
- });
+//*-----------ACCOUNTS ROUTES
 
-
+//alla konton
 app.get('/api/accounts', async (req, res) => {
   let allAccounts = await accounts.find({}).toArray();
   res.json(allAccounts);
 })
 
-
+//ett konto
 app.get('/api/accounts/:id', async (req, res) => {
-  const account = await accounts.findOne({ _id: ObjectId(req.params.id) });
-  res.json(account);
+  try { 
+    const account = await accounts.findOne({ _id: ObjectId(req.params.id) });
+    res.send(account);
+  }
+  catch{
+    res.status(404)
+		res.send({ error: "Användaren finns inte!" })
+  }
 });
 
-
+//skapa nytt konto
 app.post('/api/accounts', async (req, res) => {
   const account = {
     ...req.body
@@ -88,33 +85,35 @@ app.post('/api/accounts', async (req, res) => {
   });
 });
 
-
-app.post('/api/users', async (req, res) => {
-  const hash = await bcrypt.hash(req.body.pass, saltRounds);
-
-  const user = {
-    user: req.body.user,
-    password: hash
-  }
-
-  await users.insertOne(user);
-  res.json({
-    success:true
-  })
-});
-
-
+//ta bort ett konto
 app.delete('/api/accounts/:id', async (req, res) => {
   await accounts.deleteOne({ _id: ObjectId(req.params.id) });
   res.status(204).send();
 });
 
-
+//ändra kapital på konto
 app.put('/api/account/:id', async (req, res) => {
-  await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { balance: req.body.balance } } );
+  await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { 
+    balance: req.body.balance } } );
   res.json({
     success: true
   })
 });
 
+// //ändra namn på konto
+// app.put('/api/account/:id', async (req, res) => {
+//   await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { 
+//     accountname: req.body.accountname } } );
+//   res.json({
+//     success: true
+//   })
+// });
+
+
 app.listen(port, () => console.log(`${port}`));
+
+
+//!---404 error
+app.use((req, res) => {
+  res.status(404).render("404", {title: "404"});
+})

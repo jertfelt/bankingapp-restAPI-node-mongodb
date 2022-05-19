@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css">
+  <title>Ekobanken</title>
+</head>
+<body>
+  <header class="site__nav--main navigation-hidable navigation-sticky">
+    <div class="site__title">
+      <a href="/">
+        <h1>Ekobanken</h1></a>
+      <p class="site__title--subhead">
+        ekologiskt - socialt - kulturellt</p>
+    </div>
+    <nav>
+    <ul class="site__nav--buttons"
+      role="navigation"
+      aria-label="Primary Navigation">
+  
+    <li class="navbutton--icon ">
+      <button class="navbutton--icon navbutton__item--3 
+      login"
+      >
+        <a href="#loginDiv">Logga in</a>
+  
+      </button>
+    </li>
+    <li class="navbutton--icon ">
+      <button 
+      id="aboutUsButt"
+      class="navbutton--icon navbutton__item--2">
+        <a href="#aboutUs">Om oss</a>
+     
+        
+      </button>
+    </li>
+    <li class="navbutton--icon ">
+      <button class="navbutton--icon navbutton__item--1
+      blikund"
+      >
+        <a href="#createAccount">Bli kund</a> 
+      </button>
+    </li>
+    </ul>
+  </nav>
+  </header>
+  <main>
+
+    <section id="accountInformation">
+      <div class="frame__cell">
+        <div class="frame__cell--item">
+          <div class="textmodule__b--content">
+            <h2>Kontoinformation:</h2>
+            
+            <div id="renderAccount">
+              <!---render here-->
+            </div>
+    
+            <form action="" id="deleteAccount">
+              <button
+              class="btn--primary btn--default button__login">
+              Ta bort detta konto</button>
+            </form>
+          </div>
+        <div class="textmodule__b--infobox">
+          <form action="" id="addCash">
+            <label for="addAmount">Summa att sätta in</label>
+            <input type="number" step=".01" min="0" id="addAmount">
+            <button>Sätt in</button>
+          </form>
+          <form action="" id="withdrawCash">
+            <label for="withdrawAmount">Summa att ta ut</label>
+            <input type="number" step=".01" min="0" id="withdrawAmount">
+            <button>Ta ut pengar</button>
+          </form>
+       
+        </div>
+        </div>
+        </div>
+        <br><br>
+        <img src="https://www.ekobanken.se/-/media/ekobanken/genrebilder/braehus.jpg?rev=6d78c5db8f244bf585e41438df7bc90f&mv=1600&hash=2807B54022FAE6ABB8EBA2EDA27E4F8F"
+        alt="Braehus, foto Karin Runge"
+        class="img__hero">
+    </section>
+  </main>
+  <footer>
+    <div class="contact-area__social">
+      <a href="http://facebook.com/ekobanken" 
+      class="a-social-link a-icon_28_social-facebook">
+      Facebook</a>      
+    <a href="http://instagram.com/_ekobanken" class="a-social-link a-icon_28_social-instagram">
+      Instagram                       
+    </a>
+    </div>
+    
+      <p>© Ekobanken Medlemsbank</p>
+      <p><a href="./om-oss">Läs mer om oss </a></p>
+  </footer>
+    <script src="./js/index.js"></script>
+  
+  </body>
+  </html>

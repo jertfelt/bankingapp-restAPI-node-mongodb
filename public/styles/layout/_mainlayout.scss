@@ -69,14 +69,29 @@
     }
     &--infobox{
       margin-top: 10px;
-padding-left: 1em;
-float: right;
-width: 35%;
-color: #242424;
-padding: 1.1rem 1rem;
-  padding-left: 1rem;
-background: #f2f2f2;
-max-width: 510.75px;
+    padding-left: 1em;
+    float: right;
+    width: 35%;
+    color: #242424;
+    padding: 1.1rem 1rem;
+      padding-left: 1rem;
+    background: #f2f2f2;
+    max-width: 510.75px;
+    }
+    &--kontobox{
+    background-color: $color-grey;
+    margin-top: 50px;
+    padding-left: 1em;
+    float: right;
+    width: 40%;
+    color: #242424;
+    padding: 1.1rem 1rem;
+    padding-left: 1rem;
+    max-width: 510.75px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     }
   }
 }
@@ -175,3 +190,21 @@ max-width: 510.75px;
   }
 }
 
+.margin__top{
+  margin-top:5rem;
+}
+
+.container {
+  border: 1px solid #DDDDDD;
+  width:100%;
+  position: relative;
+}
+.txtcontainer {
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  z-index: 1000;
+  background-color: $color-white;
+  padding: 3rem;
+  font-weight: bold;
+}

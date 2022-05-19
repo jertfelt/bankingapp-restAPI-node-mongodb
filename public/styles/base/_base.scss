@@ -8,3 +8,24 @@ body {
 .hidden{
   display:none;
 }
+
+.flexRow{
+  display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  &--notapart{
+    display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  button{
+    margin-left:1rem;
+    margin-top:1.4rem;
+    border:none;
+    background-color: $color-white;
+    font-style: italic;
+  }
+  margin-bottom: -2rem;
+  }
+}

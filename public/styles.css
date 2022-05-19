@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+.font--purple {
+  color: #610058;
+}
+
 .font--xtrasmall {
   font-size: 12px;
 }
@@ -26,6 +30,11 @@ h2 {
   font-size: 2.5rem;
   line-height: 3.125rem;
   font-family: "Roboto", Arial, sans-serif;
+}
+
+.heading--notthatlarge {
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 .button__account {
@@ -146,6 +155,47 @@ body {
 
 .hidden {
   display: none;
+}
+
+.flexRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flexRow--notapart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: -2rem;
+}
+
+.flexRow--notapart button {
+  margin-left: 1rem;
+  margin-top: 1.4rem;
+  border: none;
+  background-color: #fff;
+  font-style: italic;
 }
 
 .navigation-sticky {
@@ -449,6 +499,31 @@ footer a:hover {
   max-width: 510.75px;
 }
 
+.textmodule__b--kontobox {
+  background-color: #e1dfd6;
+  margin-top: 50px;
+  padding-left: 1em;
+  float: right;
+  width: 40%;
+  color: #242424;
+  padding: 1.1rem 1rem;
+  padding-left: 1rem;
+  max-width: 510.75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .user__welcome {
   margin-top: 5rem;
   padding: 4rem;
@@ -585,6 +660,26 @@ footer a:hover {
 
 .listAccounts h3 {
   text-decoration: overline;
+}
+
+.margin__top {
+  margin-top: 5rem;
+}
+
+.container {
+  border: 1px solid #DDDDDD;
+  width: 100%;
+  position: relative;
+}
+
+.txtcontainer {
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 3rem;
+  font-weight: bold;
 }
 
 .content__404 {
