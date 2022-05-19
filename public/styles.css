@@ -144,6 +144,10 @@ body {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .navigation-sticky {
   position: fixed;
   top: 0;
@@ -399,14 +403,14 @@ footer a:hover {
 
 @media (min-width: 600px) {
   .om-oss__allusers--grid {
-    -ms-grid-columns: (1fr);
+    -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 900px) {
   .om-oss__allusers--grid {
-    -ms-grid-columns: (1fr);
+    -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -568,6 +572,19 @@ footer a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.listAccounts {
+  list-style: none;
+}
+
+.listAccounts__a {
+  margin: 1rem;
+  text-decoration: none;
+}
+
+.listAccounts h3 {
+  text-decoration: overline;
 }
 
 .content__404 {

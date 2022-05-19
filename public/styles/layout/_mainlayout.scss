@@ -164,3 +164,14 @@ max-width: 510.75px;
   }
 }
 
+.listAccounts{
+  list-style: none;
+  &__a{
+    margin:1rem;
+    text-decoration: none;
+  }
+  h3{
+    text-decoration:overline;
+  }
+}
+

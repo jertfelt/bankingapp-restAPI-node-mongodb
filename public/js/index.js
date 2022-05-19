@@ -1,132 +1,33 @@
-//KONTON
+
 const listOfAccounts = document.getElementById('allAccountsList');
 const form = document.getElementById('addAccount');
-const newTitle = document.getElementById('accountname');
+const newName = document.getElementById('accountname');
 const newBalance = document.getElementById('balance');
+const newType = document.getElementById("type")
 
-// //INLOGGNING
-// const loginform = document.getElementById('login');
-// const loginName = document.getElementById('loginname');
-// const loginPass = document.getElementById('loginpass');
-// const div = document.getElementById('messageDiv');
 
-// //UTLOGGNING & REGISTRERING
-// const logoutform = document.getElementById('logout');
-// const registerform = document.getElementById('register');
-// const newUsername = document.getElementById('registerName');
-// const newUserpass = document.getElementById('registerPass');
+const loginForm = document.getElementById('login');
+const loginName = document.getElementById('loginname');
+const loginPass = document.getElementById('loginpass');
 
-// //INLOGGNINGSFORMULÄR
-// loginform.addEventListener('submit', async (e) => {
-//   e.preventDefault();
 
-//   const res = await fetch('/api/login', {
-//     method: 'POST', 
-//     headers: {
-//       'Content-type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       loginName : loginName.value, 
-//       loginPass : loginPass.value
-//     }
-//   )});
-
-//   const data = await res.json(); 
-//   console.log(data);
-//   location.reload();
-// });
-
-// //UTLOGGNINGSFORMULÄR
-// logoutform.addEventListener('submit', async (e) => {
-//   e.preventDefault();
-
-//   const res = await fetch('/api/logout', {
-//     method: 'POST', 
-//     headers: {
-//       'Content-type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       loginName : loginName.value, 
-//       loginPass : loginPass.value
-//     })
-//   });
-//   console.log(res);
-//   location.reload();
-// // });
-
-// //REGISTRERINGSFORMULÄR
-// registerform.addEventListener('submit', async (e) => {
-//   e.preventDefault();
-
-//   const res = await fetch('/api/users', {
-//     method: 'POST', 
-//     headers: {
-//       'Content-type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       user : newUsername.value, 
-//       pass : newUserpass.value
-//     })
-//   });
-
-//   const data = await res.json(); 
-
-//   let hello = document.createElement('h2');
-//   hello.innerHTML = `Välkommen till Banken! Du kan nu logga in.`
-//   div.append(hello);
-// });
-
-// //DÖLJ LOGGA UT
-// const hideLogout = ()=> {
-//   logoutform.classList.add('hidden');
-// }
-
-// //DÖLJ RUBRIKER
-// const hideAccounts = ()=> {
-//   document.getElementById('allAccounts').classList.add('hidden');
-//   document.getElementById('createAccount').classList.add('hidden');
-// }
-
-// //DÖLJ LOGIN-FORMULÄR FÖR INLOGGADE ANVÄNDARE
-// const welcomeMessage = () => {
-//   loginform.classList.add('hidden');
-//   document.getElementById('loginHeading').classList.add('hidden');
-//   document.getElementById('registerHeading').classList.add('hidden');
-//   div.innerHTML = `Välkommen till banken!`
-//   registerform.classList.add('hidden');
-// }
-
-// //HÅLL KOLL PÅ INLOGGAD ELLER EJ
-// const getUser = async () => {
-//   const res = await fetch('/api/loggedin'); 
-//   const user = await res.json();
-//   console.log(user);
-//   if(user.error === 'Unauthorized'){
-//     hideLogout();
-//     hideAccounts();
-//   }else{
-//     welcomeMessage();
-//     getAllAccounts();
-//   }
-// }
-// getUser();
-
-//HÄMTA ALLA KONTON
 const getAllAccounts = async ()=> {
   const res = await fetch('/api/accounts');
   const data = await res.json();
   renderAccounts(data);
+  // document.getElementById("allAccounts").classList.remove("hidden")
 }
 
-//RENDERA KONTOINFORMATION
 const renderAccounts = (data) => {
   data.forEach(account => {
-    listOfAccounts.innerHTML += `<li><a href="/account.html?account=${account._id}">${account.title}</a> <br> Kontonummer ${account._id.slice(0, 10)} <br> Saldo ${account.balance} kr</li>`
-    //länken tar en till account.html med användarens ID som query-string. Se account.js!
+    listOfAccounts.innerHTML += `<a href="/account.html?account=${account._id}"
+    class="listAccounts__a">
+    <li><h3>${account.accountname}</h3><p>  Kontonummer:<br> ${account._id} <br><br>
+    Saldo:<br> ${account.balance} kr<br> Typ: ${account.type} </p></li></a>`
   })  
 }
 
-//SKAPA KONTO-FORMULÄRET
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -136,13 +37,36 @@ form.addEventListener('submit', async (e) => {
       'Content-type': 'application/json'
     }, 
     body: JSON.stringify({
-      title: newTitle.value,
-      balance: newBalance.value
+      accountname: newName.value,
+      balance: newBalance.value,
+      type: newType.value
     })
   });
 
   const data = await res.json();
+  location.reload();
+});
+
+
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const response = await fetch('/api/login', {
+    method: 'POST', 
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      loginName : loginName.value, 
+      loginPass : loginPass.value
+    }
+  )});
+
+  const data = await res.json(); 
   console.log(data);
   location.reload();
 });
 
+
+
+getAllAccounts();
