@@ -1,5 +1,5 @@
 
-const listOfAccounts = document.getElementById('allAccountsList');
+
 const form = document.getElementById('addAccount');
 const newName = document.getElementById('accountname');
 const newBalance = document.getElementById('balance');
@@ -17,22 +17,6 @@ const logout = document.getElementById('logout');
 
 
 
-//*--bankkonton:
-const getAllAccounts = async ()=> {
-  const res = await fetch('/api/accounts');
-  const data = await res.json();
-  renderAccounts(data);
-  // document.getElementById("allAccounts").classList.remove("hidden")
-}
-
-const renderAccounts = (data) => {
-  data.forEach(account => {
-    listOfAccounts.innerHTML += `<a href="/account.html?account=${account._id}"
-    class="listAccounts__a">
-    <li><h3>${account.accountname}</h3><p>  Kontonummer:<br> ${account._id} <br><br>
-    Saldo:<br> ${account.balance} kr<br> Typ: ${account.type} </p></li></a>`
-  })  
-}
 
 //skapa användare
 form.addEventListener('submit', async (e) => {
@@ -55,9 +39,7 @@ form.addEventListener('submit', async (e) => {
 });
 
 
-
-getAllAccounts();
-
+//registrera ny användare:
 registerUser.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -78,3 +60,43 @@ registerUser.addEventListener('submit', async (e) => {
   msg.innerHTML = `Välkommen till Ekobanken!`
   registerUser.append(msg);
 });
+
+
+///logga in
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const res = await fetch('/api/login', {
+    method: 'POST', 
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      loginName : loginUsername.value, 
+      loginPass : loginPassword.value
+    }
+  )})
+  console.log("inloggad")
+  const data = await res.json(); 
+  window.location.assign("/admin.html")
+
+});
+
+//logga ut
+logout.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const res = await fetch('/api/logout', {
+    method: 'POST', 
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      loginName : loginUsername.value, 
+      loginPass : loginPassword.value
+    })
+  });
+  location.reload();
+
+  hideAccounts();
+});
+

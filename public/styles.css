@@ -153,10 +153,6 @@ body {
   margin: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 .flexRow {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -707,5 +703,9 @@ footer a:hover {
 
 .content__404 p {
   font-family: "Nunito", Verdana, sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -20,14 +20,15 @@ app.use(express.urlencoded({extended: true}))
 app.use(session({
   resave: false, 
   saveUninitialized: false, 
-  secret: '2323323141-4few',
+  secret: 'VERY SECRET YES',
   cookie: {
-    maxAge: 5 * 60 * 1000 
+    maxAge: 6000000
   }
 }));
 
 app.set("view engine", "ejs");
 
+//session:
 app.get('/api/loggedin', (req, res) => {
   if(req.session.user){
     res.json({ user: req.session.user });
@@ -37,6 +38,15 @@ app.get('/api/loggedin', (req, res) => {
 });
 
 const saltRounds = 10;
+
+const restrict = (req, res, next) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(401).send({ error: 'Unauthorized' });
+  }
+}
+
 
 //*----------USER ROUTES
 app.post('/api/users', async (req, res) => {
@@ -52,6 +62,38 @@ app.post('/api/users', async (req, res) => {
     success:true
   })})
 
+
+//-------logga in
+app.post('/api/login', async (req, res) => {
+  const user = await users.findOne( { user: req.body.loginName } );
+  console.log(req.body)
+ 
+  console.log(user.pass)
+
+  const passMatches = await bcrypt.compare(req.body.loginPass, user.pass);
+
+  if (user && passMatches) {
+    req.session.user = user;
+    res.json({
+      user: user.user
+    });
+  } else { 
+    res.status(401).json({ error: 'Unauthorized' });
+  }
+});
+
+
+//logga ut
+  app.post('/api/logout', (req, res) => {
+    req.session.destroy(() => {
+      res.json({
+        loggedin: false
+      });
+    });
+  });
+
+
+
 //*-----------ACCOUNTS ROUTES
 
 //alla konton
@@ -65,6 +107,7 @@ app.get('/api/accounts/:id', async (req, res) => {
   try { 
     const account = await accounts.findOne({ _id: ObjectId(req.params.id) });
     res.send(account);
+
   }
   catch{
     res.status(404)
@@ -100,15 +143,6 @@ app.put('/api/account/:id', async (req, res) => {
   })
 });
 
-// //ändra namn på konto
-// app.put('/api/account/:id', async (req, res) => {
-//   await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { 
-//     accountname: req.body.accountname } } );
-//   res.json({
-//     success: true
-//   })
-// });
-
 
 app.listen(port, () => console.log(`${port}`));
 
@@ -117,3 +151,21 @@ app.listen(port, () => console.log(`${port}`));
 app.use((req, res) => {
   res.status(404).render("404", {title: "404"});
 })
+
+
+
+// app.get('/api/loggedin', restrict, (req, res) => {
+//   res.json({
+//     user: req.session.user
+//   });
+// });
+
+
+// //ändra namn på konto
+// app.put('/api/account/:id', async (req, res) => {
+//   await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { 
+//     accountname: req.body.accountname } } );
+//   res.json({
+//     success: true
+//   })
+// });

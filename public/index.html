@@ -142,15 +142,6 @@
   </div>
 </section>
 
-  <section id="allAccounts"
-  class="hidden
-  maincontent__index--centered">
-    <h2>Alla konton</h2>
-    <div id="allAccountsList" 
-    class="listAccounts om-oss__allusers--grid"></div>
-  </section>
-
-
 <section id="aboutUs">
     
 <div class="om-oss__textmodule">
@@ -217,7 +208,7 @@
 <section id="loginDiv"
 class="user__login">
 
-<div id="login">
+<div id="loginforms">
   <h3>
     Logga in</h3>
 <form action="" 
@@ -228,7 +219,8 @@ id="login">
   <input 
   name="username"
   type="text" 
-  id="username">
+  id="username"
+  required>
   <br>
   <label 
   for="loginpass">
@@ -236,7 +228,8 @@ id="login">
   <input 
   name="password"
   type="password" 
-  id="password">
+  id="password"
+  required>
 
   <button 
   class="btn--default button__login">
@@ -250,6 +243,7 @@ class="btn--default button__login">
     Logga ut</button>
 </form>
 </div>
+
 <div>
   <h3>Vill du ha möjlighet att ändra på ditt konto?</h3><h4>Då behöver du ha en admin-användare på vår hemsida!</h4>
   </div>
