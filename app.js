@@ -66,19 +66,19 @@ app.post('/api/users', async (req, res) => {
 //-------logga in
 app.post('/api/login', async (req, res) => {
   const user = await users.findOne( { user: req.body.loginName } );
-  console.log(req.body)
+  // console.log(req.body)
  
-  console.log(user.pass)
+  // console.log(user.pass)
+  const match = await bcrypt.compare(req.body.loginPass, user.pass);
 
-  const passMatches = await bcrypt.compare(req.body.loginPass, user.pass);
-
-  if (user && passMatches) {
+  if(!match){
+    es.status(401).json({error:'wrong password'})
+  }
+  else {
     req.session.user = user;
     res.json({
       user: user.user
     });
-  } else { 
-    res.status(401).json({ error: 'Unauthorized' });
   }
 });
 
