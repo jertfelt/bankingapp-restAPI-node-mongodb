@@ -1,5 +1,5 @@
 <h2>Banken</h2>
-image.png
+
 Din uppgift är att programmera en enkel “bank”, där en användare kan skapa konton, och sätta in, ta ut. 
 
 Projektet skall bestå av ett REST-API, samt en frontend som kommunicerar med API:et via Javascript. Kommunikationen mellan API:et och frontend skall vara med JSON.  
@@ -11,7 +11,7 @@ Ett konto på banken har följande egenskaper:
 <li>Mängden pengar på kontot</li>
 
 Typ av konto - eget påhitt
-image.png
+
 Din frontend skall ha följande:
 Ett formulär för att lägga till ett nytt konto, med namn och mängd pengar. Kontonumret skall skapas automatiskt (t.ex. Mongos ID, eller https://www.npmjs.com/package/uuid). 
 En lista på alla konton med namn, nummer och mängden pengar. 
@@ -38,4 +38,3 @@ Saknas:
 2. Navigering utifrån session fungerar därför ännu inte, saknas länkar och struktur samt att admin.html bara nås när man loggar in (eller om man fysiskt skriver in url:en)
 3. Specifika funktioner för när man är inloggad (skapa anvädare och se alla användare) är därför just nu inte specifikt, utan kan nås för alla.
 
-image.png
