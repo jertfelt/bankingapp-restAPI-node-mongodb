@@ -15,3 +15,30 @@ const renderAccounts = (data) => {
     Saldo:<br> ${account.balance} kr<br> Typ: ${account.type} </p></li></a>`
   })  
 }
+
+//om inloggad eller inte inloggad, visa olika:
+const hideAccounts = ()=> {
+
+  document.getElementById('allAccounts').classList.add('hidden');
+  document.getElementById('createAccount').classList.add('hidden');
+}
+
+const showAccounts = ()=> {
+  document.getElementById('allAccounts').classList.remove('hidden');
+
+}
+//inloggad, visa olika saker
+const loggedIn = async () => {
+  const res = await fetch('/api/loggedin'); 
+  const user = await res.json();
+  console.log(user);
+  if(user === 'Unauthorized'){
+    hideAccounts();
+  }else{
+    window.location.assign = '/admin.html';
+    showAccounts();
+  }
+}
+
+loggedIn();
+getAllAccounts();

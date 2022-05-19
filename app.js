@@ -2,6 +2,10 @@ import express from 'express';
 import session from 'express-session';
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
+// import path from 'path';
+// import {fileURLToPath} from 'url';
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 const port = 3000;
 const app = express();
@@ -30,25 +34,19 @@ app.set("view engine", "ejs");
 
 //session:
 app.get('/api/loggedin', (req, res) => {
+  console.log(req.session.user)
   if(req.session.user){
     res.json({ user: req.session.user });
+  
   }else {
-    res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).render("404", {title: "404"});
   } 
 });
 
 const saltRounds = 10;
 
-const restrict = (req, res, next) => {
-  if (req.session.user) {
-    next();
-  } else {
-    res.status(401).send({ error: 'Unauthorized' });
-  }
-}
 
-
-//*----------USER ROUTES
+//*----------USER ROUTES/CONTROLLERS
 app.post('/api/users', async (req, res) => {
   const hash = await bcrypt.hash(req.body.pass, saltRounds);
 
@@ -67,12 +65,11 @@ app.post('/api/users', async (req, res) => {
 app.post('/api/login', async (req, res) => {
   const user = await users.findOne( { user: req.body.loginName } );
   // console.log(req.body)
- 
   // console.log(user.pass)
   const match = await bcrypt.compare(req.body.loginPass, user.pass);
 
   if(!match){
-    es.status(401).json({error:'wrong password'})
+    res.status(401).json({error:'wrong password'})
   }
   else {
     req.session.user = user;
@@ -91,7 +88,6 @@ app.post('/api/login', async (req, res) => {
       });
     });
   });
-
 
 
 //*-----------ACCOUNTS ROUTES

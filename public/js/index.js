@@ -15,9 +15,6 @@ const loginUsername = document.getElementById('username');
 const loginPassword = document.getElementById('password');
 const logout = document.getElementById('logout');
 
-
-
-
 //skapa användare
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -65,7 +62,6 @@ registerUser.addEventListener('submit', async (e) => {
 ///logga in
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-
   const res = await fetch('/api/login', {
     method: 'POST', 
     headers: {
@@ -75,12 +71,14 @@ loginForm.addEventListener('submit', async (e) => {
       loginName : loginUsername.value, 
       loginPass : loginPassword.value
     }
-  )})
-  console.log("inloggad")
-  const data = await res.json(); 
-  window.location.assign("/admin.html")
-
-});
+  )}).then(() =>{
+    window.location.assign("/admin.html")
+  })
+  .catch((error) =>{
+    alert("Fel lösenord eller användarnamn!")
+    console.log(error)
+}
+)});
 
 //logga ut
 logout.addEventListener('submit', async (e) => {
@@ -96,7 +94,7 @@ logout.addEventListener('submit', async (e) => {
     })
   });
   location.reload();
-
-  hideAccounts();
 });
+
+
 
