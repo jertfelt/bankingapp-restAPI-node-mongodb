@@ -1,0 +1,23 @@
+footer{
+  background-color: $color-grey;
+  padding:3rem;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: $font-secondary;
+  a:hover{
+    color: $color-black;
+    font-weight: bolder;
+  }
+}
+
+.contact-area__social{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  a{
+    margin:0.3rem;
+  }
+}

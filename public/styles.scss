@@ -1,0 +1,17 @@
+// Variables
+// --------------------
+@import './styles/variables/colors';
+@import './styles/variables/typography';
+
+//utils
+@import './styles/utils/buttons';
+@import './styles/utils/img';
+
+//Base
+@import './styles/base/base';
+
+//Layout
+@import './styles/layout/navigation';
+@import './styles/layout/footer';
+@import './styles/layout/mainlayout';
+@import './styles/layout/404';

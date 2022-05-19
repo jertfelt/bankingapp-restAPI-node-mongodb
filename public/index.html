@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekobanken</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site__nav--main navigation-hidable navigation-sticky">
+  <div class="site__title">
+    <a href="/">
+      <h1>Ekobanken</h1></a>
+    <p class="site__title--subhead">
+      ekologiskt - socialt - kulturellt</p>
+  </div>
+  <nav>
+  <ul class="site__nav--buttons"
+    role="navigation"
+    aria-label="Primary Navigation">
+
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--3"
+    id="linkToLogIn">
+      <a href="#loginDiv">Logga in</a>
+
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--2">
+      <a href="/om-oss">Om oss</a>
+   
+      
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--1"
+    id="linkToBliKund">
+      <a href="#createAccount">Bli kund</a> 
+    </button>
+  </li>
+  </ul>
+</nav>
+</header>
+<main>
+  <section id="welcome">
+    <div class="maincontent__index--centered">
+      <div class="maincontent__index--info">
+        <img src="https://www.ekobanken.se/-/media/ekobanken/genrebilder/benjamin-combs-unsplash-16_9.jpg?rev=c8914f2732044477b7544bed86f22838&mw=1600&hash=B3425FC202D22D1300E88B5827207FB8"
+        alt="en bukett"
+        class="img__hero">
+        <h2>Vi är en snäll bank!</h2>
+        <p>Ekobankens värdegrund handlar om vikten av ett etiskt agerande i våra aktiviteter i omvärlden. Då bankens främsta påverkan sker genom utlåningen påbörjades under 2016 arbetet med att relatera låneprojekten till de Globala målen. Under varje utlåningsområde presenterar vi kort bankens bidrag till de olika målen. Avsikten är att väcka medvetenhet om målen och lyfta en diskussion om dem och därför kan valet av mål förändras.</p>
+      </div>
+    </div>
+  </section>
+  <section id="createAccount">
+    <div class="om-oss__textmodule">
+      <div class="frame__cell">
+        <div class="frame__cell--item">
+          <div class="textmodule__b--content">
+      <h2>
+        Välkommen till oss
+      </h2>
+      <p>
+      Vi är en medlemsägd, etisk bank och pengarna i banken placeras så att samhället blir mer ekologiskt, socialt, kulturellt och ekonomiskt hållbart. För oss är det viktigt att du vet vad dina pengar används till när de är placerade i banken. Därför får du regelbunden information om vad vi lånar ut till  och vi ger huvudsakligen lån till verksamheter som skapar ett socialt, miljömässigt eller kulturellt mervärde.Alla konton i Ekobanken har svensk statlig insättningsgaranti.
+      </p>
+      <h3>
+      Som kund i Ekobanken erbjuds du: 
+      </h3>
+      <h4>
+      Ekokonto
+      </h4>
+      <p>
+      Ekobankens transaktionskonto med betaltjänster. Kontot har ingen uppsägningstid och fri dispositionsrätt. Ränta beräknas dag för dag.
+      </p>
+      <h4>
+      Sparkonto
+      </h4>
+      <p>
+      Ett extra konto för ditt sparande. Ingen uppsägningstid. Ränta beräknas dag för dag.
+      </p>
+      <h4>
+      Internetbanken Privat
+      </h4>
+      <p>
+      Utför dina bankärenden i lugn och ro när du vill kolla saldo, betala räkningar eller föra över pengar till barnen
+    </p>
+  </div>
+  <aside id="createAccount"
+  class="textmodule__b--infobox"
+  >
+  <h3>Skapa nytt konto</h3>
+  <p>Fyll i namn på kontot samt hur mycket pengar som sätts in, samt vilken typ.</p>
+  <form action="" 
+    id="addAccount">
+    <label for="accountname">Namn på kontot</label><br>
+    <input type="text"
+    name="accountname" 
+    id="accountname"><br>
+    <label for="balance">Saldo</label><br>
+    <input type="number" 
+    step=".01" 
+    min="0" 
+    id="balance"
+    name="balance"><br>
+    <select
+    name="type"
+    id="type"
+    required>
+    <option 
+    value="Internetbanken">
+      Internetbanken</option>
+    <option 
+    value="Ekobanken">
+      Ekobanken</option>
+    <option 
+    value="Sparkonto">
+      Sparkonto</option>
+  </select>
+  <br>
+  <button 
+    class="btn--primary btn--default button__index--cta">
+    Skapa konto
+  </button>
+  </form>
+</aside>
+
+</div>
+
+  <section id="allAccounts"
+  class="maincontent__index--centered">
+    <h2>Alla konton</h2>
+    <ul id="allAccountsList"></ul>
+  </section>
+
+</main>
+<footer>
+  <div class="contact-area__social">
+    <a href="http://facebook.com/ekobanken" 
+    class="a-social-link a-icon_28_social-facebook">
+    Facebook</a>      
+  <a href="http://instagram.com/_ekobanken" class="a-social-link a-icon_28_social-instagram">
+    Instagram                       
+  </a>
+  </div>
+  
+    <p>© Ekobanken Medlemsbank</p>
+    <p><a href="./om-oss">Läs mer om oss </a></p>
+</footer>
+  <script src="./js/index.js"></script>
+</body>
+</html>

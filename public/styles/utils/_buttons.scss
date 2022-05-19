@@ -1,0 +1,67 @@
+.button{
+  &__account{
+    background-color: $color-black;
+      padding:1rem;
+      font-size:15px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+  }
+  &__index{
+    &--cta{
+      background-color: $color-purple;
+      padding:2rem;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__login{
+    background-color: $color-purple;
+    padding:0.3rem;
+    font-size:15px;
+    margin-bottom:0.3rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+  }
+  &__logout{
+    background-color: $color-black;
+    padding:0.3rem;
+    font-size:15px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+  }
+  &__forgotten{
+    background-color: $color-grey;
+    padding:2rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.btn{
+  &--default{
+    border:none;
+  }
+  &--primary{
+    color:white;
+    font-size:20px;
+    text-decoration: none;
+    :hover{
+      color:$color-grey;
+    }
+  }
+  &--secondary{
+    color:$color-black;
+    font-size:14px;
+    text-decoration: none;
+    :hover{
+      color:$color-purple;
+    }
+  }
+}

@@ -1,0 +1,166 @@
+.maincontent{
+  &__index{
+    &--centered{
+      margin-top:4rem;
+      padding:3rem;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &--info{
+      h2{color: $color-purple;}
+      max-width: 800px;
+      margin-bottom:1rem;
+    }
+    &--ctadiv{
+      max-width:400px;
+      padding:2rem;
+    }
+    &--ctatext{
+      h3{
+        font-size:20px;
+        color: $color-purple;
+      }
+      margin-bottom:2rem;
+      padding:0.2rem;
+    }
+  }
+}
+
+.om-oss{
+  &__textmodule{
+    margin-top:5rem;
+    padding:3rem;
+   
+  }
+  &__allusers{
+    padding:4rem;
+    background-color: $color-grey;
+    &--grid{
+    max-width: 1200px;
+    display: grid;
+    grid-gap: 1rem;
+    @media (min-width: 600px){
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 900px){
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  }
+}
+
+.frame__cell{
+  max-width:1200px;
+  &--item{margin-left: 12.5%;
+  max-width: 75%;
+  padding: 0 8px;
+  display: flex;
+  align-items: flex-start;
+  }
+}
+.textmodule{
+  &__b{
+    &--content{
+      margin-right:2em;
+      margin-bottom: 0;
+      max-width: 510px;
+    }
+    &--infobox{
+      margin-top: 10px;
+padding-left: 1em;
+float: right;
+width: 35%;
+color: #242424;
+padding: 1.1rem 1rem;
+  padding-left: 1rem;
+background: #f2f2f2;
+max-width: 510.75px;
+    }
+  }
+}
+
+.user{
+  &__welcome{
+    margin-top:5rem;
+    padding:4rem;
+    max-width: 50%;
+   }
+
+   &__login{
+     display:flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-around;
+     background-color: $color-green;
+     padding:2rem;
+     margin: 0;
+     color: $color-white;
+     form{
+       display:flex;
+       flex-direction: column;
+       align-items: flex-start;
+
+       width:75%;
+       input{
+         margin-bottom:0.3rem;
+       }
+     
+     }
+   }
+
+   &__loginform{
+     display:flex;
+     flex-direction: column;
+     button{
+       margin-top:1rem;
+     }
+     label{
+       margin-top:1rem;
+     }
+   }
+  &__create{
+    padding:1rem;
+
+    form{
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      span{
+        display:flex;
+        flex-direction: row;
+        width:100%;
+        justify-content: space-between;
+        margin-top:0.5rem;
+      }
+      button{
+        margin-top:0.8rem;
+        background-color: $color-green;
+      }
+      input{
+        margin-left:1rem;
+      }
+     
+     
+  
+    }
+  }
+
+  &__details{
+    background-color: $color-white;
+    width:100%;
+    padding:2rem;
+    a{
+      color:$color-purple;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    span{
+      display:flex;
+      flex-direction: row;
+    justify-content: space-between;
+    }
+  }
+}
+

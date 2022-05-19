@@ -1,0 +1,16 @@
+.content__404{
+  min-height: 80vh;
+  padding:8rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $color-grey;
+
+  h2{
+    color:$color-purple;
+  }
+  p{
+    font-family: $font-primary;
+  }
+}
