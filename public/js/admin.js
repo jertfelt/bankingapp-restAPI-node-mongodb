@@ -24,6 +24,10 @@ const renderAccounts = (data) => {
 }
 
 
+
+
+
+
 //om inloggad eller inte inloggad, visa olika:
 const hideAccounts = ()=> {
   document.getElementById('allAccounts').classList.add('hidden');
@@ -33,3 +37,22 @@ const showAccounts = ()=> {
   document.getElementById('allAccounts').classList.remove('hidden');
 }
 
+
+//inloggad, visa olika saker
+const loggedIn = async () => {
+  const res = await fetch('/api/loggedin'); 
+  const user = await res.json();
+  console.log(user);
+  if(user === 'Unauthorized'){
+    console.log("Ej inloggad")
+    hideAccounts();
+    showMainMenu()
+  }else{
+    console.log("visa konto")
+    showAccounts();
+    getAllAccounts();
+    showAdminMenu();
+  }
+}
+
+loggedIn();

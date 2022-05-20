@@ -1,4 +1,4 @@
-BANKEN
+<h2>Banken</h2>
 
 Din uppgift är att programmera en enkel “bank”, där en användare kan skapa konton, och sätta in, ta ut. 
 

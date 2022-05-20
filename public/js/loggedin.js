@@ -7,7 +7,6 @@ const showAdminMenu = () => {
     mainMenu.classList.add("hidden");
   }
 }
-
 const showMainMenu = () => {
   if (mainMenu.classList.contains("hidden")){
     mainMenu.classList.remove("hidden");
@@ -15,21 +14,15 @@ const showMainMenu = () => {
   }
 }
 
-//inloggad, visa olika saker
-const loggedIn = async () => {
+const menuLoggedIn = async () => {
   const res = await fetch('/api/loggedin'); 
   const user = await res.json();
   console.log(user);
   if(user === 'Unauthorized'){
-    console.log("Ej inloggad")
-    hideAccounts();
     showMainMenu()
   }else{
-    console.log("visa konto")
-    showAccounts();
-    getAllAccounts();
     showAdminMenu();
   }
 }
 
-loggedIn();
+menuLoggedIn();
