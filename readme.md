@@ -1,4 +1,5 @@
 <h2>Banken</h2>
+
 ![image](https://user-images.githubusercontent.com/30622818/169498416-483efdfd-aa48-4d0d-a939-aefddfb1731d.png)
 
 Designen är rakt av lånad från ekobanken.se
@@ -32,13 +33,17 @@ Kontofunktioner:
 <li>Man skall kunna logga in. </li>
 <li> Man ska inte kunna se konto-information om man inte är inloggad.</li>
 Admin-vy när man är inloggad admin (här med alla konton):
+
 ![image](https://user-images.githubusercontent.com/30622818/169498339-08784b72-bc86-4765-a6d3-395deb457828.png)
+
 samt ett enda konto:
 ![image](https://user-images.githubusercontent.com/30622818/169498375-83d6452f-ee9e-4f25-9535-64d531deb54f.png)
 
 
 Skapa konto för alla (separat vy för inloggad under /admin)
+
 ![image](https://user-images.githubusercontent.com/30622818/169498032-20f724d3-5480-400a-8c6c-91a2e990ce64.png)
+
 /index bli kund:
 ![image](https://user-images.githubusercontent.com/30622818/169498247-807b4802-430f-496a-952e-5e705c6ffbc2.png)
 
