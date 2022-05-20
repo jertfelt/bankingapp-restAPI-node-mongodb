@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekobanken</title>
+  <link rel="stylesheet" 
+  href="../styles.css">
+</head>
+<body>
+<header id="headerMain"
+class="site__nav--main  navigation-sticky">
+  <div class="site__title">
+    <a href="/">
+      <h1>Ekobanken</h1></a>
+    <p class="site__title--subhead">
+      ekologiskt - socialt - kulturellt</p>
+  </div>
+  <nav>
+  <ul class="site__nav--buttons"
+    role="navigation"
+    aria-label="Primary Navigation">
+
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--3 
+    login"
+    >
+      <a href="/#loginDiv">Logga ut</a>
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--3 
+    login"
+    >
+      <a href="/admin">Admin</a>
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button 
+    id="aboutUsButt"
+    class="navbutton--icon navbutton__item--2">
+      <a href="/#aboutUs">Om oss</a>
+   
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--1
+    blikund"
+    >
+      <a href="/#createAccount">Bli kund</a> 
+    </button>
+  </li>
+  </ul>
+</nav>
+</header>
+<header id="headerAdmin"
+class="site__nav--main navigation-sticky hidden">
+  <div class="site__title">
+    <a href="/">
+      <h1>Ekobanken</h1></a>
+    <p class="site__title--subhead">
+      ekologiskt - socialt - kulturellt</p>
+  </div>
+  <nav>
+  <ul class="site__nav--buttons"
+    role="navigation"
+    aria-label="Primary Navigation">
+
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--3 
+    login"
+    >
+      <a href="/#loginDiv">Logga ut</a>
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--3 
+    login"
+    >
+      <a href="/admin">Admin</a>
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button 
+    id="aboutUsButt"
+    class="navbutton--icon navbutton__item--2">
+      <a href="/#aboutUs">Om oss</a>
+   
+    </button>
+  </li>
+  <li class="navbutton--icon ">
+    <button class="navbutton--icon navbutton__item--1
+    blikund"
+    >
+      <a href="/#createAccount">Bli kund</a> 
+    </button>
+  </li>
+  </ul>
+</nav>
+</header>
+<main>
+  <section id="loggedin" 
+  class="
+  maincontent__index--centered">
+    <h2>Välkommen!</h2>
+    <div id="allAccounts">
+      <h2>Alla konton</h2>
+      <div id="allAccountsList" 
+      class="listAccounts om-oss__allusers--grid">
+
+    </div>
+    </div>
+  </section>
+  
+  <section id="createAccountAdmin">
+
+      <div class="frame__cell">
+        <div class="user__admin--create
+        margin__top user__create">
+        <h3>Skapa nytt konto</h3>
+        <p>Fyll i namn på kontot samt hur mycket pengar som sätts in, samt vilken typ.</p>
+
+    <form action=""
+    id="addAccountAdmin">
+    <label for="accountname">
+    Kontonamn:</label>
+    
+    <input 
+    type="text"
+    name="accountname" 
+    id="accountnameAdmin"
+    required>
+
+    <label 
+    for="balance">
+    Saldo:</label>
+    
+    <input 
+    type="number" 
+    step=".01" 
+    min="0" 
+    id="balanceAdmin"
+    name="balance"
+    required>
+    
+    <select
+    name="type"
+    id="typeAdmin"
+    required>
+    <option 
+    value="Internetbanken">
+      Internetbanken</option>
+    <option 
+    value="Ekobanken">
+      Ekobanken</option>
+    <option 
+    value="Sparkonto">
+      Sparkonto</option>
+  </select>
+  <br>
+  <button 
+    class="btn--primary btn--default button__index--cta">
+    Skapa konto
+  </button>
+  </form>
+     
+  </div>
+  <img src="https://www.ekobanken.se/-/media/ekobanken/genrebilder/lk.jpg?rev=033da35c77214e44953d2c30477ba593&mv=1600&hash=9BF93B41D7456C7FAFA4E1C3504411BE"
+  alt="fina rödlökar, ekologiskt odlade"
+  class="img__hero">
+</section>
+  
+</main>
+<footer>
+  <div class="contact-area__social">
+    <a href="http://facebook.com/ekobanken" 
+    class="a-social-link a-icon_28_social-facebook">
+    Facebook</a>      
+  <a href="http://instagram.com/_ekobanken" class="a-social-link a-icon_28_social-instagram">
+    Instagram                       
+  </a>
+  </div>
+  
+    <p>© Ekobanken Medlemsbank</p>
+    <p><a href="./#aboutus">Läs mer om oss </a></p>
+</footer>
+  <script src="../js/admin.js"></script>
+  <script src="../js/loggedin.js"></script>
+</body>
+</html>

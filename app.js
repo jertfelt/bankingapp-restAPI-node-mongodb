@@ -2,10 +2,9 @@ import express from 'express';
 import session from 'express-session';
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcrypt';
-// import path from 'path';
-// import {fileURLToPath} from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const port = 3000;
 const app = express();
@@ -26,13 +25,28 @@ app.use(session({
   saveUninitialized: false, 
   secret: 'VERY SECRET YES',
   cookie: {
-    maxAge: 6000000
+    maxAge: 8*60*60*1000
   }
 }));
 
 app.set("view engine", "ejs");
 
-//session:
+//---routes html-docs
+app.get("/", (req, res) => {
+  res.sendFile("./public/views/index.html", {root:__dirname});
+})
+app.get("/index.html", (req, res) => {
+  res.redirect("/")
+})
+
+app.get("/admin",(req, res) => {
+  res.sendFile("./public/views/admin.html", {root:__dirname});
+})
+
+app.get("/admin.html",(req, res) => {
+  res.redirect("/admin")
+})
+
 app.get('/api/loggedin', (req, res) => {
   console.log(req.session.user)
   if(req.session.user){
@@ -75,7 +89,7 @@ app.post('/api/login', async (req, res) => {
     req.session.user = user;
     res.json({
       user: user.user
-    });
+    }); 
   }
 });
 
@@ -103,7 +117,6 @@ app.get('/api/accounts/:id', async (req, res) => {
   try { 
     const account = await accounts.findOne({ _id: ObjectId(req.params.id) });
     res.send(account);
-
   }
   catch{
     res.status(404)
@@ -150,11 +163,6 @@ app.use((req, res) => {
 
 
 
-// app.get('/api/loggedin', restrict, (req, res) => {
-//   res.json({
-//     user: req.session.user
-//   });
-// });
 
 
 // //ändra namn på konto

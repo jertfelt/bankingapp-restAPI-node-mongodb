@@ -2,20 +2,33 @@ import express from 'express';
 import db from '../db/connect.js'
 import { ObjectId } from '../db/connect.js';
 import bcrypt from 'bcrypt';
-//*-----------ACCOUNTS ROUTES
+import __dirname from "../utilities/path.js";
+const accountsColl = await db.collection('accounts').find({user:ObjectId(req.session.user._id)}).toArray();
+
+const router = express.Router();
+
+
+const userAccess = (req, res, next) =>{
+  if(req.session.user){
+      next();
+  }
+  else{
+      res.status(401).render("404", {title: "404"});
+  }
+}
+
 
 //alla konton
-app.get('/api/accounts', async (req, res) => {
+router.get('/api/accounts', userAccess, async (req, res) => {
   let allAccounts = await accounts.find({}).toArray();
   res.json(allAccounts);
 })
 
 //ett konto
-app.get('/api/accounts/:id', async (req, res) => {
+router.get('/api/accounts/:id', userAccess, async (req, res) => {
   try { 
     const account = await accounts.findOne({ _id: ObjectId(req.params.id) });
     res.send(account);
-
   }
   catch{
     res.status(404)
@@ -24,7 +37,7 @@ app.get('/api/accounts/:id', async (req, res) => {
 });
 
 //skapa nytt konto
-app.post('/api/accounts', async (req, res) => {
+router.post('/api/accounts', userAccess, async (req, res) => {
   const account = {
     ...req.body
   };
@@ -37,16 +50,17 @@ app.post('/api/accounts', async (req, res) => {
 });
 
 //ta bort ett konto
-app.delete('/api/accounts/:id', async (req, res) => {
+router.delete('/api/accounts/:id', userAccess, async (req, res) => {
   await accounts.deleteOne({ _id: ObjectId(req.params.id) });
   res.status(204).send();
 });
 
 //ändra kapital på konto
-app.put('/api/account/:id', async (req, res) => {
+router.put('/api/account/:id', userAccess, async (req, res) => {
   await accounts.updateOne({ _id: ObjectId(req.params.id) }, { $set: { 
     balance: req.body.balance } } );
   res.json({
     success: true
   })
 });
+

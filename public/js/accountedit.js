@@ -1,4 +1,3 @@
-
 const urlParams = new URLSearchParams(location.search);
 
 //muy importante:
@@ -81,8 +80,7 @@ withdrawForm.addEventListener('submit', async (e) => {
   )});
 
   const data = await res.json(); 
-  console.log(data);
-  location.reload();
+  window.location.assign("/");
 });
 
 

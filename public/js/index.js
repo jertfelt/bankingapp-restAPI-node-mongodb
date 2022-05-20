@@ -71,8 +71,9 @@ loginForm.addEventListener('submit', async (e) => {
       loginName : loginUsername.value, 
       loginPass : loginPassword.value
     }
-  )}).then(() =>{
-    window.location.assign("/admin.html")
+  )})
+  .then(() =>{
+    window.location.assign("./admin")
   })
   .catch((error) =>{
     alert("Fel lösenord eller användarnamn!")
