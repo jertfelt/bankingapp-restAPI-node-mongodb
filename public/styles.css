@@ -619,6 +619,34 @@ footer a:hover {
   margin-left: 1rem;
 }
 
+.user__admin--create {
+  width: 100%;
+  max-width: 400px;
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user__admin--create form input {
+  max-width: 100%;
+}
+
+.user__admin--create form select {
+  margin-top: 1rem;
+  width: 70%;
+}
+
 .user__details {
   background-color: #fff;
   width: 100%;
@@ -675,6 +703,23 @@ footer a:hover {
   background-color: #fff;
   padding: 3rem;
   font-weight: bold;
+}
+
+#createAccountAdmin {
+  max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .content__404 {

@@ -28,13 +28,45 @@ const renderAccounts = (data) => {
 
 
 
+const createAccAdmin = document.getElementById("createAccountAdmin");
+
+const Adminform = document.getElementById('addAccountAdmin')
+const newNameAdm = document.getElementById('accountnameAdmin');
+const newBalanceAdm = document.getElementById('balanceAdmin');
+const newTypeAdm = document.getElementById("typeAdmin")
+
+
+//skapa användare
+Adminform.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const res = await fetch('/api/accounts', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    }, 
+    body: JSON.stringify({
+      accountname: newNameAdm.value,
+      balance: newBalanceAdm.value,
+      type: newTypeAdm.value
+    })
+  });
+
+  const data = await res.json();
+  location.reload();
+});
+
+
+
 //om inloggad eller inte inloggad, visa olika:
 const hideAccounts = ()=> {
   document.getElementById('allAccounts').classList.add('hidden');
+  createAccAdmin.classList.add("hidden");
 }
 
 const showAccounts = ()=> {
   document.getElementById('allAccounts').classList.remove('hidden');
+  createAccAdmin.classList.remove("hidden");
 }
 
 

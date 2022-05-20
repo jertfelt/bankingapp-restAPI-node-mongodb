@@ -95,6 +95,9 @@
 }
 
 .user{
+
+
+ 
   &__welcome{
     margin-top:5rem;
     padding:4rem;
@@ -158,6 +161,29 @@
      
   
     }
+    
+  }
+  &__admin{
+    &--create{
+      width:100%;
+      max-width: 400px;
+      padding:3rem;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      form{
+        input{
+          max-width:100%;
+        }
+      
+        select{
+          margin-top:1rem;
+          width:70%;
+        }
+      }
+     
+    }
   }
 
   &__details{
@@ -205,4 +231,12 @@
   background-color: $color-white;
   padding: 3rem;
   font-weight: bold;
+}
+
+#createAccountAdmin{
+  max-width:1200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
